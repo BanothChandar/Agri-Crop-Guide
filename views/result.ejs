@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/backend.css">
+    </head>
+    <body>
+        <div class="page">
+         <%- include("partials/header") %>
+         <div class="main">
+            <%- include("partials/sidebar") %>
+            <section class="content">
+                <div class="form-container">
+                    <label>Soil Type:</label>
+                    <input type="text" id="soilInput" placeholder="loamy, sandy, clay">
+                    <label>Season:</label>
+                    <input type="text" id="seasonInput" placeholder="summer, winter, rainy">
+                    <button onclick="showCrops()">⬇️ Search</button>
+                </div>
+                <div class="result-container">
+                    <div id="resultArea"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+
+    </body>
+</html>

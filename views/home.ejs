@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="/backend.css">
+</head>
+
+<body>
+    <div class="page">
+
+        <%- include("partials/header") %>
+
+        <div class="main">
+
+            <%- include("partials/sidebar") %>
+
+            <section class="content">
+                
+                <div class="wishing">
+                    <h1>Welcome</h1>
+                    <p>This is main content area.</p>
+                </div>
+
+                <div class="search-container">
+                    <h2>🌾 Crop Search</h2>
+
+                    <label>Search (Soil / Season / Crop)</label>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="e.g. black soil cotton, rabi wheat"
+                    >
+
+                    <button onclick="searchData()">⬇️ Search</button>
+                </div>
+
+                <div class="result">
+                    <div id="resultArea"></div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+    <script src="/script.js"></script>
+
+</body>
+</html>

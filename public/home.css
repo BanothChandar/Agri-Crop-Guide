@@ -1,0 +1,181 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+    background-color: #f4f4f4;
+}
+
+
+/* ================= HEADER ================= */
+header {
+    background: #2d2d2d;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color:white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f4c430;
+}
+
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    background: url("https://www.pixelstalk.net/wp-content/uploads/2016/11/Farming-free-hd-wallpapers.jpg")
+    no-repeat center center/cover;
+    margin-top: 80px;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.6);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.overlay h4 {
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.overlay h1 {
+    color: #f4c430;
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.overlay h2 {
+    color: white;
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+.name {
+    font-family: cursive;
+    font-size: 45px;
+    color: #8e44ad;
+}
+
+
+.btn {
+    background-color:green;
+    padding: 14px 35px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #f4c430;
+    border-color: #f4c430;
+    color: black;
+}
+
+
+/* ================= LOGIN / SIGNUP PAGE ================= */
+.auth-page {
+    background-image: url("https://tse2.mm.bing.net/th/id/OIP.7cRYFyLoDEDh4sRtM73vvwHaDg?pid=Api&P=0&h=180");
+    background-size: cover;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 350px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #f4c430;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background: #d4af37;
+}
+
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

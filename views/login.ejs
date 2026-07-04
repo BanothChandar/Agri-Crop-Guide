@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="logo">🌿 FARMER GUIDE</div>
+
+    <nav>
+        <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+
+    <div class="overlay">
+
+        <!-- LEFT SIDE WELCOME -->
+        <div class="welcome-box">
+            <h1>Welcome to Farmer Guide 🌾</h1>
+
+            <p>
+                Helping farmers choose the right crops, soil, and farming
+                methods with smart agricultural solutions.
+            </p>
+
+            <ul>
+                <li>✔ Crop Recommendations</li>
+                <li>✔ Soil Information</li>
+                <li>✔ Seasonal Farming Tips</li>
+                <li>✔ Smart Agriculture Support</li>
+            </ul>
+        </div>
+
+
+        <!-- RIGHT SIDE LOGIN FORM -->
+        <div class="form-container">
+
+            <h2>Login</h2>
+
+            <form action="/login" method="post">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="username"
+                        placeholder="Enter your name" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password"
+                        placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Login</button>
+
+            </form>
+
+            <p class="signup-text">
+                Don't have an account? <a href="/signup">Signup</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
