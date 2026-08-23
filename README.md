@@ -1,41 +1,106 @@
-//This is my first project .
+# Agri Crop Guide
 
-# 🌾 Agri Crop Guide
-
-Agri Crop Guide is a web application that helps farmers and agriculture enthusiasts get crop recommendations and information to make better farming decisions.
+Agri Crop Guide is a Node.js web application that gives farmers and agriculture enthusiasts crop and soil-information guidance. Users can create an account, sign in securely, and browse crop-related pages for different soil types.
 
 ## Features
 
-- 🌱 Crop recommendations based on user input
-- 📋 Detailed crop information (growing conditions, care tips, etc.)
-- 💻 Simple, easy-to-use interface
+- User signup and login
+- Passwords protected with bcrypt hashing
+- Session-based access to protected pages
+- Crop and soil guidance pages for red, black, clay, peaty, saline, and forest soils
+- MongoDB persistence through Mongoose
+- MongoDB Atlas-ready deployment configuration
 
-## Tech Stack
+## Tech stack
 
-- **Frontend:** html, css, javaScript. 
-- **Backend:** Node.js
-- **Views:** (add details here if using EJS/Handlebars, etc.)
+- **Backend:** Node.js and Express
+- **Database:** MongoDB with Mongoose
+- **Authentication:** bcrypt and express-session
+- **Views:** EJS
+- **Frontend:** HTML, CSS, and JavaScript
 
-## Getting Started
+## Prerequisites
 
-### Prerequisites
+- Node.js 20 or later
+- npm
+- One of the following MongoDB options:
+  - A local MongoDB instance, or
+  - A MongoDB Atlas cluster
 
-Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+## Installation
 
+Clone the repository and open the project folder:
 
-## Usage
+```bash
+git clone https://github.com/BanothChandar/Agri-Crop-Guide.git
+cd Agri-Crop-Guide
+```
 
-Once running, open your browser and go to `http://localhost:3000` (or your configured port) to use the app.
+Install dependencies:
 
-## Contributing
+```bash
+npm install
+```
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/BanothChandar/Agri-Crop-Guide/issues).
+## Database configuration
 
-## License
+The application reads its database connection string from the `MONGODB_URI` environment variable.
 
-This project is open source and available under the [MIT License](LICENSE).
+If no variable is provided, it connects to local MongoDB:
+
+```text
+mongodb://127.0.0.1:27017/loginTut
+```
+
+To use MongoDB Atlas, set `MONGODB_URI` to your Atlas connection string. Never commit a database password or `.env` file to GitHub.
+
+PowerShell example:
+
+```powershell
+$env:MONGODB_URI="mongodb+srv://<username>:<password>@<cluster>/loginTut?retryWrites=true&w=majority"
+npm.cmd start
+```
+
+The repository includes [`.env.example`](.env.example) as a configuration template. The real `.env` file is ignored by Git.
+
+## Run locally
+
+Start the production-style server:
+
+```bash
+npm start
+```
+
+For development with automatic restarts:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Deployment with Render
+
+1. Push the project to GitHub.
+2. In Render, select **New** → **Web Service** and connect this repository.
+3. Use these service settings:
+   - Build command: `npm install`
+   - Start command: `npm start`
+4. Add a Render environment variable named `MONGODB_URI` with your MongoDB Atlas connection string.
+5. Deploy the service.
+
+Render provides the `PORT` environment variable automatically; the application uses it when available.
+
+## Project structure
+
+```text
+src/
+  config.js       MongoDB connection and user model
+  index.js        Express application, routes, and authentication
+views/            EJS page templates
+public/           Stylesheets, client-side JavaScript, and images
+```
 
 ## Author
 
-**Banoth Chandar**
-GitHub: [@BanothChandar](https://github.com/BanothChandar)
+Banoth Chandar — [@BanothChandar](https://github.com/BanothChandar)

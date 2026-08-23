@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
-const collection = require("./config");
+const { collection, connectDatabase } = require("./config");
 
 const app = express();
 
@@ -155,8 +155,18 @@ app.get("/logout", (req, res) => {
 
 
 // ================= SERVER =================
-const port = 5125;
+const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-});
+async function startServer() {
+    try {
+        await connectDatabase();
+        app.listen(port, () => {
+            console.log(`Server running on http://localhost:${port}`);
+        });
+    } catch (error) {
+        console.error("Server was not started because the database is unavailable.");
+        process.exit(1);
+    }
+}
+
+startServer();

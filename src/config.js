@@ -1,16 +1,20 @@
 const mongoose = require("mongoose");
 
-// MongoDB Connection
-mongoose.connect("mongodb://127.0.0.1:27017/loginTut")
-.then(() => {
-    console.log("Database connected successfully ✅");
-})
-.catch(() => {
-    console.log("Database connection failed ❌");
-});
+// Set MONGODB_URI to use MongoDB Atlas. Without it, retain the project's local database.
+const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/loginTut";
 
+async function connectDatabase() {
+    try {
+        await mongoose.connect(mongoUri, {
+            serverSelectionTimeoutMS: 5000
+        });
+        console.log("Database connected successfully.");
+    } catch (error) {
+        console.error("Database connection failed:", error.message);
+        throw error;
+    }
+}
 
-// Schema
 const LoginSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -20,10 +24,10 @@ const LoginSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-});
+}, { timestamps: true });
 
+LoginSchema.index({ name: 1 }, { unique: true });
 
-// Collection / Model
 const collection = mongoose.model("users", LoginSchema);
 
-module.exports = collection;
+module.exports = { collection, connectDatabase };
