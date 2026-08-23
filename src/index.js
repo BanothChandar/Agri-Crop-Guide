@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-    secret: "farmerGuideSecret",
+    secret: process.env.SESSION_SECRET || "farmerGuideSecret",
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }
